@@ -1,0 +1,11 @@
+node_node_modules
+bower_components
+
+/dist
+
+# Coverage
+/coverage
+
+# Visual Studio Code
+/.history
+/.vscode
