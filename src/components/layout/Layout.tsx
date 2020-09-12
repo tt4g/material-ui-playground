@@ -11,7 +11,6 @@ const BaseLayout: React.FC = ({ children }) => (
       justify="center"
       alignItems="flex-start"
       spacing={0}
-      zeroMinWidth
     >
       {children}
     </Grid>
