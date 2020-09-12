@@ -37,6 +37,28 @@ const babelPluginTransformReactConstantElements = [
   "@babel/plugin-transform-react-constant-elements",
 ];
 
+// Material-UI Minimizing Bundle Size: https://material-ui.com/guides/minimizing-bundle-size/
+const babelPluginImportMaterialUICore = [
+  "babel-plugin-import",
+  {
+    libraryName: "@material-ui/core",
+    // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+    libraryDirectory: "esm",
+    camel2DashComponentName: false,
+  },
+  "core",
+];
+const babelPluginImportMaterialUIIcons = [
+  "babel-plugin-import",
+  {
+    libraryName: "@material-ui/icons",
+    // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+    libraryDirectory: "esm",
+    camel2DashComponentName: false,
+  },
+  "icons",
+];
+
 /**
  * @type {babel.ConfigFunction}
  */
@@ -52,6 +74,8 @@ module.exports = (api) => {
           babelPluginTransformRuntime,
           babelPluginTransformClassProperties,
           babelPluginTransformReactConstantElements,
+          babelPluginImportMaterialUICore,
+          babelPluginImportMaterialUIIcons,
         ],
       },
       development: {
@@ -60,6 +84,8 @@ module.exports = (api) => {
           babelPluginTransformRuntime,
           babelPluginTransformClassProperties,
           babelPluginTransformReactConstantElements,
+          babelPluginImportMaterialUICore,
+          babelPluginImportMaterialUIIcons,
         ],
       },
       // env.test used by jest with babel-jest.
@@ -69,6 +95,8 @@ module.exports = (api) => {
           babelPluginTransformRuntime,
           babelPluginTransformClassProperties,
           babelPluginTransformReactConstantElements,
+          babelPluginImportMaterialUICore,
+          babelPluginImportMaterialUIIcons,
         ],
       },
     },
