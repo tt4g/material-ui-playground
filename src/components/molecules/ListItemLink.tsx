@@ -8,18 +8,36 @@ import type { LinkProps } from "react-router-dom";
 
 type ListItemLinkProps = ListItemProps & LinkProps;
 
-type ForwardRefLinkProps = Omit<LinkProps, "to">;
+type ForwardRefLinkProps = Omit<
+  LinkProps,
+  "component" | "to" | "innerRef" | "replace"
+>;
 
 const ListItemLink: React.FC<ListItemLinkProps> = (props) => {
-  const { to, children } = props;
+  const {
+    component,
+    to,
+    replace,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    innerRef: _innerRef, // unused
+    children,
+  } = props;
 
   const renderLink = React.useMemo(
     () =>
       // eslint-disable-next-line react/display-name, @typescript-eslint/no-explicit-any
       React.forwardRef<any, ForwardRefLinkProps>((linkProps, ref) => (
-        <Link ref={ref} to={to} {...linkProps} />
+        <Link
+          ref={ref}
+          {...linkProps}
+          component={component}
+          to={to}
+          replace={replace}
+        />
       )),
-    [to]
+    [component, to, replace]
   );
 
   return <ListItem component={renderLink}>{children}</ListItem>;
