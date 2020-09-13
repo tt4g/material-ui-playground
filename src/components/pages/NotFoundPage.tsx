@@ -5,13 +5,14 @@ import { Helmet } from "react-helmet";
 
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../router/routes";
-import { NoMenuLayout } from "../layout/Layout";
+
+import { ErrorPageTemplate } from "../templates/ErrorPageTemplate";
 
 const NotFoundPage: React.FC = () => {
   const location = useLocation();
 
   return (
-    <NoMenuLayout>
+    <ErrorPageTemplate>
       <Helmet>
         <title>Not Found!</title>
       </Helmet>
@@ -24,7 +25,7 @@ const NotFoundPage: React.FC = () => {
           <Link to={routes.index.path}>Go to Index Page.</Link>
         </p>
       </Box>
-    </NoMenuLayout>
+    </ErrorPageTemplate>
   );
 };
 

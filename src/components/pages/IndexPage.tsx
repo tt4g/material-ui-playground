@@ -1,16 +1,16 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Layout } from "../layout/Layout";
+import { DefaultPageTemplate } from "../templates/DefaultPageTemplate";
 
 const IndexPage: React.FC = () => (
   <>
     <Helmet>
       <title>Index Page</title>
     </Helmet>
-    <Layout>
+    <DefaultPageTemplate>
       <Typography variant="h2">Material-UI Playground</Typography>
-    </Layout>
+    </DefaultPageTemplate>
   </>
 );
 
