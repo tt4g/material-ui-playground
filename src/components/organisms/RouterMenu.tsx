@@ -13,7 +13,7 @@ const RouterMenu: React.FC<RouterMenuProps> = () => (
     <Toolbar />
     <List>
       <ListItemLink to={routes.index.path} button>
-        <ListItemText primary={"Index"} />
+        <ListItemText primary="Index" />
       </ListItemLink>
     </List>
   </Drawer>

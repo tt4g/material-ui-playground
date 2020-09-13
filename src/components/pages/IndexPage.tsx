@@ -9,7 +9,7 @@ const IndexPage: React.FC = () => (
       <title>Index Page</title>
     </Helmet>
     <Layout>
-      <Typography variant="h2">Material-UI Playground.</Typography>
+      <Typography variant="h2">Material-UI Playground</Typography>
     </Layout>
   </>
 );
