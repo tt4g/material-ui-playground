@@ -7,21 +7,26 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const argvEnvironments = ["production", "development"];
 const assertEnv = (env) => {
-  if (env !== "production" && env !== "development") {
+  const envCount = Object.keys(env).filter((key) =>
+    argvEnvironments.includes(key)
+  ).length;
+
+  if (envCount !== 1) {
     throw new Error(
-      `invalid env: ${env}, should "webpack --env production" or "webpack --env development"`
+      `invalid --env option: must specify build environment option, one of "webpack --env production" or "webpack --env development"`
     );
   }
 
-  if (env !== process.env.NODE_ENV) {
+  if (!env[process.env.NODE_ENV]) {
     throw new Error(
-      `env and process.env.NODE_ENV did not match. env: ${env} process.env.NODE_ENV: ${process.env.NODE_ENV}`
+      `env and process.env.NODE_ENV did not match. process.env.NODE_ENV: ${process.env.NODE_ENV}`
     );
   }
 };
 
-const isProductionEnv = (env) => env === "production";
+const isProductionEnv = (env) => Boolean(env.production);
 
 /**
  * @type import("webpack").ConfigurationFactory
@@ -87,8 +92,9 @@ module.exports = (env, _argv) => {
     output: {
       path: outputPath,
       publicPath: publicPath,
-      filename: "js/[name].[hash].js",
-      chunkFilename: "js/[id].[hash].js",
+      filename: "js/[name].[contenthash].js",
+      chunkFilename: "js/[id].[contenthash].js",
+      assetModuleFilename: "images/[name][contenthash][ext][query]",
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -159,19 +165,12 @@ module.exports = (env, _argv) => {
         },
         {
           test: /\.(woff|woff2|eot|ttf|svg)$/,
+          type: "asset/resource",
+          generator: {
+            filename: "font/[name][contenthash][ext][query]",
+          },
           // NOTE: Include node_modules/fontsource-roboto directory to bundle Roboto-font.
           include: [path.resolve(__dirname, "node_modules/fontsource-roboto")],
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "[name].[ext]",
-                outputPath: "font",
-                publicPath: path.posix.join(publicPath, "font"),
-                emitFile: true,
-              },
-            },
-          ],
         },
       ],
     },
@@ -210,8 +209,8 @@ module.exports = (env, _argv) => {
         xhtml: false,
       }),
       new MiniCssExtractPlugin({
-        filename: "css/[name].[hash].css",
-        chunkFilename: "css/[id].[hash].css",
+        filename: "css/[name].[contenthash].css",
+        chunkFilename: "css/[id].[contenthash].css",
         ignoreOrder: false,
       }),
     ],
