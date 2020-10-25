@@ -94,6 +94,7 @@ module.exports = (env, _argv) => {
       publicPath: publicPath,
       filename: "js/[name].[contenthash].js",
       chunkFilename: "js/[id].[contenthash].js",
+      assetModuleFilename: "images/[name][contenthash][ext][query]",
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -164,19 +165,12 @@ module.exports = (env, _argv) => {
         },
         {
           test: /\.(woff|woff2|eot|ttf|svg)$/,
+          type: "asset/resource",
+          generator: {
+            filename: "font/[name][contenthash][ext][query]",
+          },
           // NOTE: Include node_modules/fontsource-roboto directory to bundle Roboto-font.
           include: [path.resolve(__dirname, "node_modules/fontsource-roboto")],
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "[name].[ext]",
-                outputPath: "font",
-                publicPath: path.posix.join(publicPath, "font"),
-                emitFile: true,
-              },
-            },
-          ],
         },
       ],
     },
