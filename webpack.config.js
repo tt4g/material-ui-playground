@@ -85,7 +85,7 @@ module.exports = (env, _argv) => {
   /** @type {webpack.Configuration} */
   const webpackBaseConfig = {
     mode: webpackMode,
-    target: "web",
+    target: "browserslist",
     entry: {
       index: "./src/index.tsx",
     },
