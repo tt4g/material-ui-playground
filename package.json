@@ -17,8 +17,8 @@
     "webpack:prod": "cross-env NODE_ENV=production webpack --env production",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
-    "format": "prettier --write ./src",
-    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
+    "format": "eslint --fix ./src && prettier --write ./src",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src"
   },
   "author": "tt4g",
   "license": "MIT",
