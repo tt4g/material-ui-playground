@@ -1,6 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // NOTE: The transpile will be executed by `@babel/preset-typescript`.
+    //  This setting of `outDir` is there to prevent the problem of file
+    //  overwrite warnings when `.js` is included in the source tree.
+    //  If `outDir` is not set, this will happen because the result of the
+    //  transpile will be output in the same directory as the source.
+    "outDir": "./dist",
     "target": "es2016",
     "module": "es2015",
     "moduleResolution": "node",
