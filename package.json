@@ -1,7 +1,7 @@
 {
-  "name": "react-router-autorhozation-example",
+  "name": "material-ui-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "Material-UI Playground",
   "scripts": {
     "start:dev-server": "cross-env NODE_ENV=development webpack serve --env development",
     "build:clean": "rimraf ./dist",
