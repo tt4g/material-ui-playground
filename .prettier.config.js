@@ -6,6 +6,7 @@ module.exports = {
   arrowParens: "always",
   jsxBracketSameLine: false,
   jsxSingleQuote: false,
+  embeddedLanguageFormatting: "auto",
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
