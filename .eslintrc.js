@@ -13,8 +13,6 @@ module.exports = {
     "plugin:import/warnings",
     "plugin:import/typescript", // eslint-plugin-import dependency when parsing Typescript.
     "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
