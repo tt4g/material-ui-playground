@@ -19,7 +19,7 @@ const App: FC = () => (
     >
       <html lang="en" />
     </Helmet>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/router">
       <ScrollToTop />
       <Switch>
         <Route exact path={routes.index.path}>
