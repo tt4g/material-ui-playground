@@ -1,4 +1,4 @@
-import Box from "@material-ui/core/Box";
+import { Box } from "@material-ui/core";
 import type { FC } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLocation } from "react-router-dom";
