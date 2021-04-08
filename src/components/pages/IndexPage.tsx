@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
 import type { FC } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { DefaultPageTemplate } from "../templates/DefaultPageTemplate";
 
 const IndexPage: FC = () => (

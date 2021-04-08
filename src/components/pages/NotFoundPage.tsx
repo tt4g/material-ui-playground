@@ -1,6 +1,6 @@
 import { Box } from "@material-ui/core";
 import type { FC } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../router/routes";
 import { ErrorPageTemplate } from "../templates/ErrorPageTemplate";
