@@ -1,7 +1,7 @@
+const cssnano = require("cssnano");
 const postcssFlexbugsFixes = require("postcss-flexbugs-fixes");
 const postcssImport = require("postcss-import");
 const postcssPresetEnv = require("postcss-preset-env");
-const cssnano = require("cssnano");
 
 module.exports = {
   plugins: [
@@ -14,7 +14,7 @@ module.exports = {
         remove: true,
         supports: true,
         flexbox: "no-2009",
-        grid: false,
+        grid: "autoplace",
       },
       stage: 3,
     }),
