@@ -1,9 +1,8 @@
 import { Container, Grid } from "@material-ui/core";
-
-import React from "react";
+import type { FC } from "react";
 import { RouterMenu } from "../organisms/RouterMenu";
 
-const BaseLayout: React.FC = ({ children }) => (
+const BaseLayout: FC = ({ children }) => (
   <Container maxWidth="md">
     <Grid
       container
@@ -20,7 +19,7 @@ const BaseLayout: React.FC = ({ children }) => (
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface LayoutProps {}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <BaseLayout>
       <RouterMenu />
@@ -29,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-const NoMenuLayout: React.FC<LayoutProps> = ({ children }) => {
+const NoMenuLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <BaseLayout>
       <main>{children}</main>

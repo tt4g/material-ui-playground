@@ -14,7 +14,14 @@ const babelPresetEnvTest = [
   },
 ];
 
-const babelPresetReact = "@babel/preset-react";
+const babelPresetReact = [
+  "@babel/preset-react",
+  {
+    // Enable new JSX syntax.
+    // See: https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    runtime: "automatic",
+  },
+];
 
 const babelPresetTypescript = [
   "@babel/preset-typescript",

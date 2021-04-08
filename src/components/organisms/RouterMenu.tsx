@@ -1,8 +1,7 @@
 import { Drawer, List, ListItemText, Toolbar } from "@material-ui/core";
 import green from "@material-ui/core/colors/green";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import React from "react";
-
+import type { FC } from "react";
 import { routes } from "../../router/routes";
 import { ListItemNavLink } from "../molecules/ListItemNavLink";
 
@@ -18,7 +17,7 @@ type RouterMenuProps = {
   children?: never;
 };
 
-const RouterMenu: React.FC<RouterMenuProps> = () => {
+const RouterMenu: FC<RouterMenuProps> = () => {
   const classes = useStyles();
 
   return (

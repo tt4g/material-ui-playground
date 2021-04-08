@@ -2,7 +2,8 @@
 
 import { ListItem } from "@material-ui/core";
 import type { ListItemProps } from "@material-ui/core";
-import React from "react";
+import { forwardRef, useMemo } from "react";
+import type { FC } from "react";
 import { NavLink } from "react-router-dom";
 import type { NavLinkProps } from "react-router-dom";
 
@@ -22,7 +23,7 @@ type ForwardRefLinkProps = Omit<
   | "location"
 >;
 
-const ListItemNavLink: React.FC<ListItemNavLinkProps> = (props) => {
+const ListItemNavLink: FC<ListItemNavLinkProps> = (props) => {
   const {
     component,
     to,
@@ -40,10 +41,10 @@ const ListItemNavLink: React.FC<ListItemNavLinkProps> = (props) => {
     children,
   } = props;
 
-  const renderLink = React.useMemo(
+  const renderLink = useMemo(
     () =>
       // eslint-disable-next-line react/display-name, @typescript-eslint/no-explicit-any
-      React.forwardRef<any, ForwardRefLinkProps>((navLinkProps, ref) => (
+      forwardRef<any, ForwardRefLinkProps>((navLinkProps, ref) => (
         <NavLink
           ref={ref}
           {...navLinkProps}

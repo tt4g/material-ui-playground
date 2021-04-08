@@ -1,8 +1,6 @@
-import React from "react";
+import type { FC } from "react";
 import { Layout } from "../layout/Layout";
 
-const DefaultPageTemplate: React.FC = ({ children }) => (
-  <Layout>{children}</Layout>
-);
+const DefaultPageTemplate: FC = ({ children }) => <Layout>{children}</Layout>;
 
 export { DefaultPageTemplate };

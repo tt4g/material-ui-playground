@@ -4,7 +4,7 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import React from "react";
+import type { FC } from "react";
 
 const theme = createMuiTheme();
 const responsiveTheme = responsiveFontSizes(theme, {
@@ -12,7 +12,7 @@ const responsiveTheme = responsiveFontSizes(theme, {
   disableAlign: false,
 });
 
-const MaterialUI: React.FC = ({ children }) => (
+const MaterialUI: FC = ({ children }) => (
   <ThemeProvider theme={responsiveTheme}>
     <CssBaseline />
     {children}

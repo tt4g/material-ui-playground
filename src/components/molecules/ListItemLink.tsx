@@ -2,7 +2,8 @@
 
 import { ListItem } from "@material-ui/core";
 import type { ListItemProps } from "@material-ui/core";
-import React from "react";
+import { forwardRef, useMemo } from "react";
+import type { FC } from "react";
 import { Link } from "react-router-dom";
 import type { LinkProps } from "react-router-dom";
 
@@ -13,7 +14,7 @@ type ForwardRefLinkProps = Omit<
   "component" | "to" | "innerRef" | "replace"
 >;
 
-const ListItemLink: React.FC<ListItemLinkProps> = (props) => {
+const ListItemLink: FC<ListItemLinkProps> = (props) => {
   const {
     component,
     to,
@@ -25,10 +26,10 @@ const ListItemLink: React.FC<ListItemLinkProps> = (props) => {
     children,
   } = props;
 
-  const renderLink = React.useMemo(
+  const renderLink = useMemo(
     () =>
       // eslint-disable-next-line react/display-name, @typescript-eslint/no-explicit-any
-      React.forwardRef<any, ForwardRefLinkProps>((linkProps, ref) => (
+      forwardRef<any, ForwardRefLinkProps>((linkProps, ref) => (
         <Link
           ref={ref}
           {...linkProps}

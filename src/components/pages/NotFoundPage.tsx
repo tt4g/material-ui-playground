@@ -1,14 +1,11 @@
 import Box from "@material-ui/core/Box";
-import React from "react";
-
+import type { FC } from "react";
 import { Helmet } from "react-helmet";
-
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../router/routes";
-
 import { ErrorPageTemplate } from "../templates/ErrorPageTemplate";
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage: FC = () => {
   const location = useLocation();
 
   return (

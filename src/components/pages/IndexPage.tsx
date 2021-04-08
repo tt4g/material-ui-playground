@@ -1,9 +1,9 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
+import type { FC } from "react";
 import { Helmet } from "react-helmet";
 import { DefaultPageTemplate } from "../templates/DefaultPageTemplate";
 
-const IndexPage: React.FC = () => (
+const IndexPage: FC = () => (
   <>
     <Helmet>
       <title>Index Page</title>

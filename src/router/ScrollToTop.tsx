@@ -1,4 +1,4 @@
-import React from "react";
+import type { FC } from "react";
 import { useScrollToTop } from "./useScrollToTop";
 
 /**
@@ -9,7 +9,6 @@ import { useScrollToTop } from "./useScrollToTop";
  * NOTE: This component use `useScrollToTop()`.
  *
  * @example
- * import React from "react";
  * import ReactDOM from "react-dom";
  *
  * import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -28,7 +27,7 @@ import { useScrollToTop } from "./useScrollToTop";
  *   </BrowserRouter>
  *   document.getElementById("root"))
  */
-const ScrollToTop: React.FC = () => {
+const ScrollToTop: FC = () => {
   useScrollToTop();
 
   return null;

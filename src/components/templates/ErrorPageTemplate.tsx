@@ -1,7 +1,7 @@
-import React from "react";
+import type { FC } from "react";
 import { NoMenuLayout } from "../layout/Layout";
 
-const ErrorPageTemplate: React.FC = ({ children }) => (
+const ErrorPageTemplate: FC = ({ children }) => (
   <NoMenuLayout>{children}</NoMenuLayout>
 );
 

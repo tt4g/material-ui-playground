@@ -1,7 +1,5 @@
-import React from "react";
-
+import type { FC } from "react";
 import { Helmet } from "react-helmet";
-
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { IndexPage } from "./components/pages/IndexPage";
 import { NotFoundPage } from "./components/pages/NotFoundPage";
@@ -11,7 +9,7 @@ import { MaterialUI } from "./material-ui/MaterialUI";
 import { routes } from "./router/routes";
 import { ScrollToTop } from "./router/ScrollToTop";
 
-const App: React.FC = () => (
+const App: FC = () => (
   <MaterialUI>
     <Helmet
       encodeSpecialCharacters
